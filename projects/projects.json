@@ -10,6 +10,16 @@
     }
   },
   {
+    "name": "Spotify clone",
+    "desc": "Spotify clone built using JS ",
+    "image": "spotify",
+    "category": "mern",
+    "links": {
+      "view": "#",
+      "code": "https://github.com/Shahnilsharma/spotify-clone.git"
+    }
+  },
+  {
     "name": "PWSkills",
     "desc": "Front-end of PWSkills-Clone-Using-TailwindCSS ",
     "image": "pwskills",
@@ -21,7 +31,7 @@
   },
   {
     "name": "Sadapay Clone",
-    "desc": "Front of a simple sadaplay clone UI with basic html and css",
+    "desc": "Front-end  of a simple sadaplay clone  landing page UI with basic html and css",
     "image": "sadapay",
     "category": "web",
     "links": {
@@ -37,16 +47,6 @@
     "links": {
       "view": "#",
       "code": "https://github.com/Shahnilsharma/Hand-Gesture-Robot-Car-Project.git"
-    }
-  },
-  {
-    "name": "Spotify clone",
-    "desc": "Spotify clone built using JS ",
-    "image": "spotify",
-    "category": "mern",
-    "links": {
-      "view": "#",
-      "code": "https://github.com/Shahnilsharma/spotify-clone.git"
     }
   },
   {
