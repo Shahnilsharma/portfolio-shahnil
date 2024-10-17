@@ -60,10 +60,10 @@
     }
   },
   {
-    "name": "Indian Temples",
-    "desc": "It shows temples of different sectors of India. as user clicks it will redirect to wiki of that temple for info.",
-    "image": "templeweb",
-    "category": "basicweb",
+    "name": "Java Script Course",
+    "desc": "I made a whole course on Java script from begginner level to the advanced in an interactive textual way",
+    "image": "js",
+    "category": "course",
     "links": {
       "view": "#",
       "code": "#"
