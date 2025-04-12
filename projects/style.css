@@ -270,7 +270,7 @@ header .navbar ul li a:hover{
   background: #310ae0f5;
 }
 
-@media screen and (max-width: 450px) {
+/* @media screen and (max-width: 450px) {
   .work .button-group{
     width: 100%;
   }
@@ -280,7 +280,47 @@ header .navbar ul li a:hover{
   .work .box-container .grid-item .box{
     width: 95% !important;
   }
+} */
+
+
+@media screen and (max-width: 450px) {
+  .work .button-group {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .work .box-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    gap: 1rem;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  .work .box-container .grid-item {
+    width: 100%;
+  }
+
+  .work .box-container .grid-item .box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100% !important;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .work .box-container .grid-item .box:hover {
+    transform: translateY(-5px);
+  }
 }
+
+
+
+
+
 
 /* back to home button */
 .backbtn{
