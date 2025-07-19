@@ -55,7 +55,27 @@ document.addEventListener('visibilitychange',
 
 // <!-- typed js effect starts -->
 var typed = new Typed(".typing-text", {
-    strings: ["frontend development", "Solidity Smart Contracts", "web designing", "Community Building", "web development"],
+    strings: [
+  "frontend development",
+  "web development",
+  "web designing",
+  "Community Building",
+  "Solidity Smart Contracts",
+  "React.js",
+  "Next.js",
+  "Angular",
+  "Node.js",
+  "Express.js",
+  "MongoDB",
+  "SQL",
+  "PostgreSQL",
+  "Redux Toolkit",
+  "REST APIs",
+  "Chatbot Integration",
+  "AI Tools",
+  "Web3"
+],
+
     loop: true,
     typeSpeed: 50,
     backSpeed: 25,

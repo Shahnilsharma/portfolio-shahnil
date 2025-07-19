@@ -194,7 +194,7 @@ header .navbar ul li a:hover{
   height: 25px;
   right: -17px;
   background-color: rgb(255, 255, 255);
-  border: 4px solid #f68c09;
+  border: 4px solid rgb(115, 3, 167);
   top: 15px;
   border-radius: 50%;
   z-index: 100;
@@ -219,9 +219,9 @@ header .navbar ul li a:hover{
   width: 0;
   z-index: 1;
   right: 30px;
-  border: medium solid #f68c09;
+  border: medium solid rgb(115, 3, 167);
   border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #f68c09;
+  border-color: transparent transparent transparent rgb(115, 3, 167);
 }
 /* arrows pointing left  */
 .experience .right::before {
@@ -232,16 +232,17 @@ header .navbar ul li a:hover{
   width: 0;
   z-index: 1;
   left: 30px;
-  border: medium solid #f68c09;
+  border: medium solid rgb(115, 3, 167);
   border-width: 10px 10px 10px 0;
-  border-color: transparent #f68c09 transparent transparent;
+  border-color: transparent rgb(115, 3, 167) transparent transparent;
 }
 .experience .right::after {
   left: -16px;
 }
 .experience .content {
-  background-color: #f68c09;
+  background-color: rgb(115, 3, 167);
   position: relative;
+  color: white;
   border-radius: 6px;
 }
 .experience .content .tag{
