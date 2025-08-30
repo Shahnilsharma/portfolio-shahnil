@@ -1,0 +1,265 @@
+/* Spiderman Comic Theme - Dark Mode */
+:root {
+    --spidey-red: #e23636;
+    --spidey-blue: #2b3990;
+    --spidey-dark: #0c0c1d;
+    --spidey-light: #f5f5f5;
+    --comic-yellow: #f7d038;
+}
+
+/* Dark mode base styles */
+body.dark-mode {
+    background-color: var(--spidey-dark);
+    color: var(--spidey-light);
+    transition: all 0.5s ease;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 6rem;
+    z-index: 1001;
+    background: var(--spidey-red);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(226, 54, 54, 0.7);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(226, 54, 54, 0.9);
+}
+
+/* Dark mode navbar */
+body.dark-mode header {
+    background-color: rgba(12, 12, 29, 0.95);
+    box-shadow: 0 1px 4px rgba(226, 54, 54, 0.3);
+}
+
+body.dark-mode header .logo {
+    color: var(--spidey-light);
+}
+
+body.dark-mode header .logo:hover {
+    color: var(--spidey-red);
+}
+
+body.dark-mode header .navbar ul li a {
+    color: var(--spidey-light);
+}
+
+body.dark-mode header .navbar ul li a.active,
+body.dark-mode header .navbar ul li a:hover {
+    color: var(--spidey-red);
+    border-bottom: 0.2rem solid var(--spidey-red);
+}
+
+/* Dark mode hero section */
+body.dark-mode .home .content h2 {
+    color: var(--spidey-light);
+}
+
+body.dark-mode .home .content h2 span {
+    color: var(--spidey-red);
+}
+
+body.dark-mode .home .content p {
+    color: var(--spidey-light);
+}
+
+body.dark-mode .home .content p span {
+    color: var(--comic-yellow);
+}
+
+body.dark-mode .home .btn {
+    background: var(--spidey-red);
+    box-shadow: 0px 5px 18px rgba(226, 54, 54, 0.6);
+}
+
+body.dark-mode .home .btn:hover {
+    background: #c42a2a;
+}
+
+/* Comic book effect for images */
+body.dark-mode .tilt {
+    filter: contrast(1.1) saturate(1.2);
+    border: 2px solid var(--spidey-red);
+    box-shadow: 0 0 10px rgba(226, 54, 54, 0.5);
+}
+
+/* Dark mode about section */
+body.dark-mode .about {
+    background: var(--spidey-dark);
+}
+
+body.dark-mode .about .row .content h3 {
+    color: var(--spidey-light);
+}
+
+body.dark-mode .about .row .content .tag {
+    color: var(--comic-yellow);
+}
+
+body.dark-mode .about .row .content p {
+    color: #cccccc;
+}
+
+body.dark-mode .resumebtn .btn {
+    background: var(--spidey-red);
+    box-shadow: 0px 5px 10px rgba(226, 54, 54, 0.6);
+}
+
+body.dark-mode .resumebtn .btn:hover {
+    background: #c42a2a;
+}
+
+/* Dark mode skills section */
+body.dark-mode .skills {
+    background: linear-gradient(to bottom, #1a1a40, var(--spidey-blue));
+}
+
+body.dark-mode .skills .container {
+    background: rgba(12, 12, 29, 0.8);
+}
+
+body.dark-mode .skills .container .bar {
+    background: rgba(43, 57, 144, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .skills .container .bar:hover {
+    box-shadow: 0 8px 10px rgba(226, 54, 54, 0.4);
+    background-color: rgba(43, 57, 144, 0.8);
+}
+
+/* Dark mode education */
+body.dark-mode .education {
+    background: var(--spidey-dark);
+}
+
+body.dark-mode .education .box {
+    background: rgba(43, 57, 144, 0.1);
+    border-color: var(--spidey-red);
+}
+
+body.dark-mode .education .box:hover {
+    box-shadow: 0.2rem 0.5rem 1rem rgba(226, 54, 54, 0.2);
+}
+
+/* Dark mode work section */
+body.dark-mode .work {
+    background: linear-gradient(to bottom, #1a1a40, var(--spidey-blue));
+}
+
+body.dark-mode .work .box-container .box .content .tag {
+    background: var(--spidey-red);
+}
+
+body.dark-mode .work .desc .btns .btn:hover {
+    background: var(--spidey-red);
+}
+
+body.dark-mode .work .viewall .btn {
+    border: 2px solid var(--spidey-red);
+    color: var(--spidey-light);
+}
+
+body.dark-mode .work .viewall .btn:hover {
+    background: var(--spidey-red);
+}
+
+/* Dark mode experience */
+body.dark-mode .experience .content {
+    background: var(--spidey-red);
+}
+
+body.dark-mode .morebtn .btn {
+    background: var(--spidey-red);
+}
+
+body.dark-mode .morebtn .btn:hover {
+    background: #c42a2a;
+}
+
+/* Dark mode footer */
+body.dark-mode .footer {
+    background: var(--spidey-dark);
+}
+
+body.dark-mode .footer .box-container .box a:hover {
+    color: var(--spidey-red);
+}
+
+body.dark-mode .footer .box-container .box .share a {
+    background: var(--spidey-light);
+    color: var(--spidey-dark);
+}
+
+body.dark-mode .footer .box-container .box .share a:hover {
+    background: transparent;
+    border: 0.1rem solid var(--spidey-light);
+    color: var(--spidey-red);
+}
+
+/* Comic book panel effect */
+.comic-panel {
+    position: relative;
+    overflow: hidden;
+}
+
+.comic-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid var(--spidey-red);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Spidey sense animation */
+@keyframes spidey-sense {
+    0% { box-shadow: 0 0 5px var(--spidey-red); }
+    50% { box-shadow: 0 0 20px var(--spidey-red); }
+    100% { box-shadow: 0 0 5px var(--spidey-red); }
+}
+
+.spidey-sense {
+    animation: spidey-sense 2s infinite;
+}
+
+/* Web effect */
+.web-line {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    transform-origin: 0 0;
+}
+
+/* Comic text effect */
+.comic-text {
+    font-weight: bold;
+    text-shadow: 2px 2px 0 #000, 
+                -1px -1px 0 #000, 
+                1px -1px 0 #000, 
+                -1px 1px 0 #000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: 1.2rem;
+        right: 5rem;
+        width: 40px;
+        height: 40px;
+    }
+}

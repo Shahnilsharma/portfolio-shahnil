@@ -253,3 +253,119 @@ srtop.reveal('.experience .timeline .container', { interval: 400 });
 /* SCROLL CONTACT */
 srtop.reveal('.contact .container', { delay: 400 });
 srtop.reveal('.contact .container .form-group', { delay: 400 });
+
+// Spiderman theme toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    
+    // Check for saved theme preference or respect OS preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        body.classList.add('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        themeToggle.innerHTML = '<i class="fas fa-mask"></i>';
+    }
+    
+    // Theme toggle button functionality
+    themeToggle.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+        
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            addComicEffects();
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeToggle.innerHTML = '<i class="fas fa-mask"></i>';
+            removeComicEffects();
+        }
+    });
+    
+    // Add comic book effects
+    function addComicEffects() {
+        // Add web lines to the background
+        addWebLines();
+        
+        // Add comic panel borders to sections
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.classList.add('comic-panel');
+        });
+        
+        // Add spidey sense effect to important elements
+        const importantElements = document.querySelectorAll('.btn, .theme-toggle');
+        importantElements.forEach(el => {
+            el.classList.add('spidey-sense');
+        });
+    }
+    
+    function removeComicEffects() {
+        // Remove web lines
+        const webLines = document.querySelectorAll('.web-line');
+        webLines.forEach(line => line.remove());
+        
+        // Remove comic panel borders
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.classList.remove('comic-panel');
+        });
+        
+        // Remove spidey sense effect
+        const importantElements = document.querySelectorAll('.btn, .theme-toggle');
+        importantElements.forEach(el => {
+            el.classList.remove('spidey-sense');
+        });
+    }
+    
+    function addWebLines() {
+        const numberOfLines = 20;
+        const container = document.createElement('div');
+        container.style.position = 'fixed';
+        container.style.top = '0';
+        container.style.left = '0';
+        container.style.width = '100%';
+        container.style.height = '100%';
+        container.style.pointerEvents = 'none';
+        container.style.zIndex = '1';
+        container.id = 'web-container';
+        
+        for (let i = 0; i < numberOfLines; i++) {
+            const line = document.createElement('div');
+            line.classList.add('web-line');
+            
+            // Random position and rotation
+            const startX = Math.random() * 100;
+            const startY = Math.random() * 100;
+            const angle = Math.random() * 360;
+            const length = 50 + Math.random() * 100;
+            
+            line.style.width = length + 'px';
+            line.style.height = '1px';
+            line.style.position = 'absolute';
+            line.style.left = startX + 'vw';
+            line.style.top = startY + 'vh';
+            line.style.transform = `rotate(${angle}deg)`;
+            line.style.opacity = '0.1';
+            
+            container.appendChild(line);
+        }
+        
+        document.body.appendChild(container);
+    }
+    
+    // Add particles color change in dark mode
+    const originalParticlesRefresh = particlesJS;
+    
+    particlesJS = function(e, a) {
+        if (body.classList.contains('dark-mode') && a && a.particles) {
+            // Change particles to spiderman theme
+            a.particles.color.value = '#e23636';
+            a.particles.line_linked.color = '#2b3990';
+        }
+        originalParticlesRefresh(e, a);
+    };
+});

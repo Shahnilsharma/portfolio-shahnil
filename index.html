@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Add after existing stylesheets -->
+<link rel="stylesheet" href="./assets/css/spiderman-theme.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,6 +38,9 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#toContact">Contact</a></li>
             </ul>
+            <div id="theme-toggle" class="theme-toggle">
+    <i class="fas fa-mask"></i>
+</div>
         </nav>
 </header>
 <!-- navbar ends -->
@@ -354,7 +359,9 @@
 
 <!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
 
-<script src="./assets/js/script.js"></script>
 
+<script src="./assets/js/script.js"></script>
+<!-- Add after other scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 </body>
 </html>
