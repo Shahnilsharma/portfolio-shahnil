@@ -76,7 +76,7 @@ body.dark-mode .home .content p {
 }
 
 body.dark-mode .home .content p span {
-    color: var(--comic-yellow);
+    color: var(--spidey-red);
 }
 
 body.dark-mode .home .btn {
@@ -105,7 +105,7 @@ body.dark-mode .about .row .content h3 {
 }
 
 body.dark-mode .about .row .content .tag {
-    color: var(--comic-yellow);
+    color: var(--spidey-red);
 }
 
 body.dark-mode .about .row .content p {
@@ -209,6 +209,26 @@ body.dark-mode .footer .box-container .box .share a:hover {
     color: var(--spidey-red);
 }
 
+body.dark-mode .skills .heading span {
+  color: var(--spidey-red);
+}
+body.dark-mode .work .heading span {
+  color: var(--spidey-red);
+}
+body.dark-mode .education .heading span {
+  color: var(--spidey-red);
+}
+body.dark-mode .about .heading span {
+  color: var(--spidey-red);
+}
+body.dark-mode .about .heading{
+  color: var(--spidey-white);
+}
+
+body.dark-mode .experience .heading{
+  color: var(--spidey-white);
+}
+
 /* Comic book panel effect */
 .comic-panel {
     position: relative;
@@ -226,6 +246,159 @@ body.dark-mode .footer .box-container .box .share a:hover {
     pointer-events: none;
     z-index: 2;
 }
+
+   .spider-toggle-container {
+            position: fixed;
+            top: 1.5rem;
+            right: 6rem;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .spider-thread {
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, #000);
+            margin-bottom: -5px;
+            transition: all 0.5s ease;
+        }
+        
+        body.dark-mode .spider-thread {
+            background: linear-gradient(to bottom, transparent, #e23636);
+            box-shadow: 0 0 8px rgba(226, 54, 54, 0.7);
+        }
+        
+        .spider-toggle {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            background: #000;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .spider-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        body.dark-mode .spider-toggle {
+            background: #e23636;
+            box-shadow: 0 0 15px rgba(226, 54, 54, 0.9);
+        }
+        
+        .spider-toggle i {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Spider legs effect */
+        .spider-toggle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -5px;
+            width: 8px;
+            height: 2px;
+            background: #000;
+            transition: all 0.3s ease;
+        }
+        
+        .spider-toggle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -5px;
+            width: 8px;
+            height: 2px;
+            background: #000;
+            transition: all 0.3s ease;
+        }
+        
+        body.dark-mode .spider-toggle::before,
+        body.dark-mode .spider-toggle::after {
+            background: #e23636;
+            box-shadow: 0 0 5px rgba(226, 54, 54, 0.7);
+        }
+        
+        /* Additional decorative legs */
+        .spider-leg {
+            position: absolute;
+            width: 8px;
+            height: 2px;
+            background: #000;
+            transition: all 0.3s ease;
+        }
+        
+        .leg-1 {
+            top: 15px;
+            left: -5px;
+            transform: rotate(30deg);
+        }
+        
+        .leg-2 {
+            top: 15px;
+            right: -5px;
+            transform: rotate(-30deg);
+        }
+        
+        .leg-3 {
+            bottom: 15px;
+            left: -5px;
+            transform: rotate(-30deg);
+        }
+        
+        .leg-4 {
+            bottom: 15px;
+            right: -5px;
+            transform: rotate(30deg);
+        }
+        
+        body.dark-mode .spider-leg {
+            background: #e23636;
+            box-shadow: 0 0 5px rgba(226, 54, 54, 0.7);
+        }
+        
+        /* Animation for spider */
+        @keyframes spider-swing {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            50% { transform: rotate(-5deg); }
+            75% { transform: rotate(3deg); }
+            100% { transform: rotate(0deg); }
+        }
+        
+        .spider-toggle-container:hover {
+            animation: spider-swing 2s ease-in-out;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .spider-toggle-container {
+                top: 1.2rem;
+                right: 5rem;
+            }
+            
+            .spider-toggle {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .spider-toggle i {
+                font-size: 1.3rem;
+            }
+            
+            .spider-thread {
+                height: 35px;
+            }
+        }
 
 /* Spidey sense animation */
 @keyframes spidey-sense {
