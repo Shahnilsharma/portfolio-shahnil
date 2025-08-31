@@ -44,11 +44,11 @@ document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
             document.title = "Portfolio | Shahnil Sharma";
-            $("#favicon").attr("href", "assets/images/favicon.jpeg");
+            $("#favicon").attr("href", "assets/images/spiddy.ico");
         }
         else {
             document.title = "Come Back To Portfolio";
-            $("#favicon").attr("href", "assets/images/favhand.png");
+            $("#favicon").attr("href", "assets/images/spiddy.png");
         }
     });
 
