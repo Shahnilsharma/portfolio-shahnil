@@ -14,6 +14,10 @@ body.dark-mode {
     transition: all 0.5s ease;
 }
 
+/* hamburger */
+body.dark-mode #menu {
+  color: var(--spidey-red);
+}
 /* Theme toggle button */
 .theme-toggle {
     position: fixed;
@@ -249,7 +253,7 @@ body.dark-mode .experience .heading{
 
    .spider-toggle-container {
             position: fixed;
-            top: 1.5rem;
+            top: 6.5rem;
             right: 6rem;
             z-index: 1001;
             display: flex;
@@ -259,7 +263,7 @@ body.dark-mode .experience .heading{
         
         .spider-thread {
             width: 2px;
-            height: 40px;
+            height: 90px;
             background: linear-gradient(to bottom, transparent, #000);
             margin-bottom: -5px;
             transition: all 0.5s ease;
@@ -382,7 +386,7 @@ body.dark-mode .experience .heading{
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .spider-toggle-container {
-                top: 1.2rem;
+                top: 6.2rem;
                 right: 5rem;
             }
             
@@ -396,7 +400,8 @@ body.dark-mode .experience .heading{
             }
             
             .spider-thread {
-                height: 35px;
+                height: 95px;
+                z-index: 10;
             }
         }
 
