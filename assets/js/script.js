@@ -266,6 +266,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
         body.classList.add('dark-mode');
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            updateProfileImage();
+
     } else {
         themeToggle.innerHTML = '<i class="fas fa-mask"></i>';
     }
@@ -283,8 +285,11 @@ document.addEventListener('DOMContentLoaded', function() {
             themeToggle.innerHTML = '<i class="fas fa-mask"></i>';
             removeComicEffects();
         }
+         updateProfileImage();
+        
     });
     
+
     // Add comic book effects
     function addComicEffects() {
         // Add web lines to the background
@@ -370,6 +375,16 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 });
 
+function updateProfileImage() {
+    const profileImage = document.getElementById('pfp');
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    
+    if (isDarkMode) {
+        profileImage.src = "./assets/images/hero1.jpeg";
+    } else {
+        profileImage.src = "./assets/images/hero.jpeg";
+    }
+}
 // Image toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
     const imageToggle = document.getElementById('image-toggle');
@@ -387,6 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Store original image source
     const originalSrc = profileImage.src;
     const spidermanSrc = originalSrc.replace('.jpeg', '-spiderman.jpeg');
+    
     
     // Create comic bubble element
     const comicBubble = document.createElement('div');
@@ -565,3 +581,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize based on current theme
     handleDarkModeChange(body.classList.contains('dark-mode'));
 });
+
