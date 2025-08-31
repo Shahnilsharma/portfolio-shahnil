@@ -253,3 +253,315 @@ srtop.reveal('.experience .timeline .container', { interval: 400 });
 /* SCROLL CONTACT */
 srtop.reveal('.contact .container', { delay: 400 });
 srtop.reveal('.contact .container .form-group', { delay: 400 });
+
+// Spiderman theme toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    
+    // Check for saved theme preference or respect OS preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        body.classList.add('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        themeToggle.innerHTML = '<i class="fas fa-mask"></i>';
+    }
+    
+    // Theme toggle button functionality
+    themeToggle.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+        
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            addComicEffects();
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeToggle.innerHTML = '<i class="fas fa-mask"></i>';
+            removeComicEffects();
+        }
+    });
+    
+    // Add comic book effects
+    function addComicEffects() {
+        // Add web lines to the background
+        addWebLines();
+        
+        // Add comic panel borders to sections
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.classList.add('comic-panel');
+        });
+        
+        // Add spidey sense effect to important elements
+        const importantElements = document.querySelectorAll('.btn, .theme-toggle');
+        importantElements.forEach(el => {
+            el.classList.add('spidey-sense');
+        });
+    }
+    
+    function removeComicEffects() {
+        // Remove web lines
+        const webLines = document.querySelectorAll('.web-line');
+        webLines.forEach(line => line.remove());
+        
+        // Remove comic panel borders
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.classList.remove('comic-panel');
+        });
+        
+        // Remove spidey sense effect
+        const importantElements = document.querySelectorAll('.btn, .theme-toggle');
+        importantElements.forEach(el => {
+            el.classList.remove('spidey-sense');
+        });
+    }
+    
+    function addWebLines() {
+        const numberOfLines = 20;
+        const container = document.createElement('div');
+        container.style.position = 'fixed';
+        container.style.top = '0';
+        container.style.left = '0';
+        container.style.width = '100%';
+        container.style.height = '100%';
+        container.style.pointerEvents = 'none';
+        container.style.zIndex = '1';
+        container.id = 'web-container';
+        
+        for (let i = 0; i < numberOfLines; i++) {
+            const line = document.createElement('div');
+            line.classList.add('web-line');
+            
+            // Random position and rotation
+            const startX = Math.random() * 100;
+            const startY = Math.random() * 100;
+            const angle = Math.random() * 360;
+            const length = 50 + Math.random() * 100;
+            
+            line.style.width = length + 'px';
+            line.style.height = '1px';
+            line.style.position = 'absolute';
+            line.style.left = startX + 'vw';
+            line.style.top = startY + 'vh';
+            line.style.transform = `rotate(${angle}deg)`;
+            line.style.opacity = '0.1';
+            
+            container.appendChild(line);
+        }
+        
+        document.body.appendChild(container);
+    }
+    
+    // Add particles color change in dark mode
+    const originalParticlesRefresh = particlesJS;
+    
+    particlesJS = function(e, a) {
+        if (body.classList.contains('dark-mode') && a && a.particles) {
+            // Change particles to spiderman theme
+            a.particles.color.value = '#e23636';
+            a.particles.line_linked.color = '#2b3990';
+        }
+        originalParticlesRefresh(e, a);
+    };
+});
+
+// Image toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const imageToggle = document.getElementById('image-toggle');
+    const imageToggleContainer = document.getElementById('image-toggle-container');
+    const profileImage = document.querySelector('.home .image img');
+    const imageContainer = document.querySelector('.home .image');
+    const body = document.body;
+    
+    // Create container for additional effects
+    const container = document.createElement('div');
+    container.className = 'image-container';
+    profileImage.parentNode.insertBefore(container, profileImage);
+    container.appendChild(profileImage);
+    
+    // Store original image source
+    const originalSrc = profileImage.src;
+    const spidermanSrc = originalSrc.replace('.jpeg', '-spiderman.jpeg');
+    
+    // Create comic bubble element
+    const comicBubble = document.createElement('div');
+    comicBubble.className = 'comic-bubble';
+    comicBubble.textContent = 'Thwip!';
+    container.appendChild(comicBubble);
+    
+    // Create web shooter effect
+    const webShooter = document.createElement('div');
+    webShooter.className = 'web-shooter';
+    container.appendChild(webShooter);
+    
+    // Check for saved preferences
+    const savedTheme = localStorage.getItem('theme');
+    const savedImageMode = localStorage.getItem('imageMode');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Set initial state based on saved preferences or system preference
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        // Dark mode is active
+        imageToggleContainer.style.display = 'flex';
+        
+        if (savedImageMode === 'spiderman') {
+            imageToggle.checked = true;
+            activateSpidermanImage();
+        } else {
+            // Default to normal image in dark mode
+            setDarkModeImage(false);
+        }
+    }
+    
+    // Toggle functionality
+    imageToggle.addEventListener('change', function() {
+        if (this.checked) {
+            activateSpidermanImage();
+            localStorage.setItem('imageMode', 'spiderman');
+        } else {
+            setDarkModeImage(false);
+            localStorage.setItem('imageMode', 'normal');
+        }
+    });
+    
+    // Function to handle dark mode changes
+    function handleDarkModeChange(isDarkMode) {
+        if (isDarkMode) {
+            // Show the toggle button
+            imageToggleContainer.style.display = 'flex';
+            
+            // Check if we should use Spiderman image
+            const imageMode = localStorage.getItem('imageMode');
+            if (imageMode === 'spiderman') {
+                imageToggle.checked = true;
+                activateSpidermanImage();
+            } else {
+                setDarkModeImage(false);
+            }
+        } else {
+            // Hide the toggle button and revert to normal image
+            imageToggleContainer.style.display = 'none';
+            imageToggle.checked = false;
+            setLightModeImage();
+        }
+    }
+    
+    // Observe theme changes
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'class') {
+                const isDarkMode = body.classList.contains('dark-mode');
+                handleDarkModeChange(isDarkMode);
+            }
+        });
+    });
+    
+    // Start observing the body for class changes
+    observer.observe(body, { attributes: true });
+    
+    function activateSpidermanImage() {
+        // Add Spiderman class to image
+        profileImage.classList.add('spiderman-image');
+        container.classList.add('spiderman-image');
+        
+        // Add animation
+        profileImage.classList.add('animate-spidey');
+        
+        // Change to Spiderman image
+        const preloadImage = new Image();
+        preloadImage.src = spidermanSrc;
+        preloadImage.onload = function() {
+            profileImage.src = spidermanSrc;
+        };
+        
+        // Add special effect on hover
+        container.addEventListener('mouseenter', addHoverEffect);
+        container.addEventListener('mouseleave', removeHoverEffect);
+    }
+    
+    function setDarkModeImage(isSpiderman) {
+        if (isSpiderman) {
+            activateSpidermanImage();
+        } else {
+            // Use normal image but with dark mode styling
+            profileImage.classList.remove('spiderman-image', 'animate-spidey');
+            container.classList.remove('spiderman-image');
+            
+            // Revert to original image but keep dark mode border
+            profileImage.src = originalSrc;
+            profileImage.classList.add('default-image');
+            
+            // Remove hover effects
+            container.removeEventListener('mouseenter', addHoverEffect);
+            container.removeEventListener('mouseleave', removeHoverEffect);
+            removeHoverEffect();
+        }
+    }
+    
+    function setLightModeImage() {
+        // Revert to completely normal image
+        profileImage.classList.remove('spiderman-image', 'animate-spidey', 'default-image');
+        container.classList.remove('spiderman-image');
+        
+        // Revert to original image
+        profileImage.src = originalSrc;
+        
+        // Remove hover effects
+        container.removeEventListener('mouseenter', addHoverEffect);
+        container.removeEventListener('mouseleave', removeHoverEffect);
+        removeHoverEffect();
+    }
+    
+    function addHoverEffect() {
+        if (imageToggle.checked && body.classList.contains('dark-mode')) {
+            // Add extra effects on hover
+            profileImage.style.transform = 'scale(1.05)';
+            profileImage.style.transition = 'transform 0.3s ease';
+            
+            // Add web lines effect
+            addWebLinesEffect();
+        }
+    }
+    
+    function removeHoverEffect() {
+        profileImage.style.transform = 'scale(1)';
+        
+        // Remove web lines
+        const webLines = document.querySelectorAll('.web-line-effect');
+        webLines.forEach(line => line.remove());
+    }
+    
+    function addWebLinesEffect() {
+        // Remove any existing web lines
+        removeHoverEffect();
+        
+        // Create web lines radiating from the image
+        for (let i = 0; i < 8; i++) {
+            const angle = (i / 8) * Math.PI * 2;
+            const length = 50 + Math.random() * 50;
+            
+            const webLine = document.createElement('div');
+            webLine.className = 'web-line-effect';
+            webLine.style.position = 'absolute';
+            webLine.style.width = length + 'px';
+            webLine.style.height = '2px';
+            webLine.style.background = 'linear-gradient(to right, rgba(255,255,255,0.8), transparent)';
+            webLine.style.transformOrigin = '0 0';
+            webLine.style.transform = `rotate(${angle}rad)`;
+            webLine.style.top = '50%';
+            webLine.style.left = '50%';
+            webLine.style.zIndex = '1';
+            webLine.style.opacity = '0.7';
+            
+            container.appendChild(webLine);
+        }
+    }
+    
+    // Initialize based on current theme
+    handleDarkModeChange(body.classList.contains('dark-mode'));
+});
