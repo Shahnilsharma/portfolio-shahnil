@@ -1,5 +1,24 @@
 [
   {
+    "name": "Embedabbles Market Place",
+    "desc": "Blockchain Projects.",
+    "image": "Embeddable",
+    "category": "web",
+    "links": {
+      "view": "#",
+      "code": "https://github.com/Shahnilsharma/embeddable-marketplace-demo"
+    }
+  }, {
+    "name": "Secured Wireless FTP Server",
+    "desc": "This project implements a secured wireless FTP server with a graphical user interface (GUI) built using PyQt5. It allows users to share directories over FTP with device-specific permissions and real-time device discovery on the local network.",
+    "image": "ftp",
+    "category": "Python",
+    "links": {
+      "view": "#",
+      "code": "https://github.com/Shahnilsharma/ftp_python_project"
+    }
+  },
+  {
     "name": "TaxPal",
     "desc": "Responsive frontend website of taxpal made using tailwind css .",
     "image": "taxpal",
@@ -13,7 +32,7 @@
     "name": "Spotify clone",
     "desc": "Spotify clone built using JS ",
     "image": "spotify",
-    "category": "mern",
+    "category": "web",
     "links": {
       "view": "#",
       "code": "https://github.com/Shahnilsharma/spotify-clone.git"
@@ -66,7 +85,7 @@
     "category": "course",
     "links": {
       "view": "#",
-      "code": "#"
+      "code": "https://github.com/Shahnilsharma/Learn-JS"
     }
   }
 ]
